@@ -1,0 +1,12 @@
+.wrp {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  min-width: 400px;
+  border-radius: 5px;
+  box-shadow: 0 0 8px rgba(0,0,0,.1);
+  background-color: #fff;
+}
+.title_box{
+  text-align: center;
+}
+

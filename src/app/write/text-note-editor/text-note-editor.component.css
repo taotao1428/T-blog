@@ -1,0 +1,19 @@
+
+.editor_container {
+  width: 700px;
+  margin: 0 auto;
+}
+
+.toolbar_box {
+  padding: 5px 20px;
+  border-bottom: 1px solid #eee;
+  background: white;
+  border-top: 1px solid #eee;
+  line-height: 25px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+.opr_area {
+  float: right;
+}

@@ -1,0 +1,15 @@
+<button [class]="'edui-btn fa fa-' + iconName"
+        [ngClass]="{'active': active, 'disable': disabled}"
+        (click)="onClick()"
+        [disabled]="disabled"
+        nz-tooltip [nzTitle]="title" [nzMouseEnterDelay]="0.1"
+>{{name}}</button>
+
+<nz-modal [(nzVisible)]="show"
+          nzTitle="插入链接"
+          nzOkText="插入"
+          nzCancelText="取消"
+          (nzOnOk)="insert()"
+          (nzOnCancel)="show=false">
+  <input nz-input placeholder="请输入链接" [(ngModel)]="url" #ngModel required="true">
+</nz-modal>

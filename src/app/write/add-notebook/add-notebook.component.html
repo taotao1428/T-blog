@@ -1,0 +1,20 @@
+<a class="add_link" href="javascript:;" (click)="showInput()">
+  <i class="anticon anticon-folder-add"></i> 新建文集
+</a>
+<form *ngIf="input" nz-form [formGroup]="addNotebookForm" class="add-form" (ngSubmit)="submitForm()">
+  <nz-form-item>
+    <nz-form-control>
+      <nz-input-group nzPrefixIcon="anticon anticon-folder">
+        <input type="text" nz-input formControlName="name" placeholder="输入文集名" required="true">
+      </nz-input-group>
+      <nz-form-explain *ngIf="addNotebookForm.get('name').dirty && addNotebookForm.get('name').errors">不能为空</nz-form-explain>
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-control>
+      <button nz-button nzType="primary" nzGhost class="submit_btn">提交</button>
+      <button nz-button type="button" (click)="hideInput()" nzGhost>取消</button>
+    </nz-form-control>
+  </nz-form-item>
+</form>

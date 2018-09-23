@@ -1,0 +1,117 @@
+<!--<form nz-form [formGroup]="basicForm" (ngSubmit)="save()">-->
+  <!--<nz-form-item>-->
+    <!--<nz-form-control>-->
+      <!--<nz-input-group nzPrefixIcon="anticon anticon-user">-->
+        <!--<input formControlName="nickname" nz-input placeholder="Username">-->
+      <!--</nz-input-group>-->
+      <!--<nz-form-explain *ngIf="basicForm.get('nickname').dirty && basicForm.get('nickname').errors">Please input your username!</nz-form-explain>-->
+    <!--</nz-form-control>-->
+  <!--</nz-form-item>-->
+  <!--<nz-form-item>-->
+    <!--<nz-form-control>-->
+      <!--<button nz-button nzType="primary" [disabled]="!basicForm.valid">Log in</button>-->
+    <!--</nz-form-control>-->
+  <!--</nz-form-item>-->
+<!--</form>-->
+
+
+<ng-container *ngIf="!loading; else loadingTmpl">
+
+  <div>
+    <form nz-form [formGroup]="basicForm" (ngSubmit)="save()">
+      <table class="form_table">
+        <tr>
+          <th class="first_col"></th>
+          <th></th>
+        </tr>
+
+        <tr>
+          <td class="top_line">
+            <div class="avatar">
+              <img [src]="userBasic.avatar" alt="头像">
+            </div>
+          </td>
+          <td class="top_line">
+            <button nz-button nzType="primary" nzGhost>修改头像</button>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <span class="title">昵称</span>
+          </td>
+          <td>
+            <input
+              type="text"
+              formControlName="nickname"
+              nz-input
+              placeholder="请输入昵称"
+            >
+
+            <span *ngIf="basicForm.get('nickname').dirty&&basicForm.get('nickname').errors">昵称必须输入</span>
+            <!--<nz-form-item>-->
+              <!--<nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="nickname">E-mail</nz-form-label>-->
+              <!--<nz-form-control>-->
+                <!--<input formControlName="nickname" nz-input placeholder="请输入昵称">-->
+                <!--<nz-form-explain *ngIf="basicForm.get('nickname').dirty && basicForm.get('nickname').errors">昵称必须输入</nz-form-explain>-->
+              <!--</nz-form-control>-->
+            <!--</nz-form-item>-->
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <span class="title">邮箱</span>
+          </td>
+          <td>
+            <span>{{userBasic.email}}</span><span>{{userBasic.emailConfirmed ? '已验证': '未验证'}}</span>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <span class="title">常用编辑器</span>
+          </td>
+          <td>
+            <nz-radio-group formControlName="preferredNoteType">
+              <label nz-radio [nzValue]="0" >富文本</label>
+              <label nz-radio [nzValue]="1" >markdown</label>
+            </nz-radio-group>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <span class="title">接收谁的信息</span>
+          </td>
+          <td>
+            <nz-radio-group formControlName="acceptStrangerMessage">
+              <label nz-radio [nzValue]="true" >所有人</label>
+              <label nz-radio [nzValue]="false">我关注的人，我发过简信的人</label>
+            </nz-radio-group>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <span class="title">提醒邮件通知</span>
+          </td>
+          <td>
+            <nz-radio-group formControlName="emailNotify">
+              <label nz-radio [nzValue]="0" >所有动态</label>
+              <label nz-radio [nzValue]="1" >每天未读汇总</label>
+              <label nz-radio [nzValue]="2" >不接受</label>
+            </nz-radio-group>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <button class="submit_btn" type="submit" nz-button nzType="primary" [disabled]="!basicForm.valid&&saving">保存{{saving ? '中...' : ''}}</button>
+          </td>
+          <td></td>
+        </tr>
+      </table>
+    </form>
+  </div>
+</ng-container>
+
+<ng-template #loadingTmpl>
+  加载用户信息中...
+</ng-template>
+
+

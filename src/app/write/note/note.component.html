@@ -1,0 +1,38 @@
+<div class="note">
+  <div class="icon_box">
+    <i class="anticon anticon-file-markdown" [ngClass]="{'anticon-file-text': note.noteType == 0, 'anticon-file-markdown': note.noteType == 1}"></i>
+  </div>
+  <div class="info">
+    <div class="title one-line">{{note.title}}</div>
+    <div class="abstract one-line">{{note.content | slice:0:100}}</div>
+  </div>
+  <div class="operate_btn"
+       nz-popover [nzContent]="popoverContent"
+       nzTrigger="click"
+       nzPlacement="right"
+       nzOverlayClassName="notebook_popover" (click)="$event.stopPropagation();">
+    <i class="anticon anticon-setting"></i>
+  </div>
+  <span class="word_count">字数:{{note.content.length}}</span>
+</div>
+<ng-template #popoverContent>
+  <div *ngIf="!note.shared" (click)="publicize()">直接发布</div>
+  <div *ngIf="note.shared">已发布</div>
+
+  <div nz-popover
+       [nzContent]="notebookList"
+       nzPlacement="right">
+    移动文章
+  </div>
+
+  <div (click)="showLogs()">历史版本</div>
+  <div *ngIf="note.shared" (click)="openNote()">在新窗口打开</div>
+  <div (click)="deleteNote()">删除文章</div>
+</ng-template>
+<ng-template #notebookList>
+  <ng-container *ngFor="let item of notebooks">
+    <div *ngIf="item != notebook" (click)="moveTo(item)">
+      {{item.name}}
+    </div>
+  </ng-container>
+</ng-template>

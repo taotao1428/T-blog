@@ -1,0 +1,14 @@
+.title_input {
+  border: none;
+  box-shadow: none;
+  font-size: 29px;
+  font-weight: 500;
+  height: 70px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 0px;
+}
+.title_input_box {
+  width: 700px;
+  margin: 0 auto;
+}

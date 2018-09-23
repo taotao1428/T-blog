@@ -1,0 +1,12 @@
+.note_manage {
+  height: 100vh;
+}
+.secondary_sider{
+  background-color: white;
+  color: #595959;
+  overflow-y: scroll;
+}
+.content {
+  background-color: white;
+  overflow-y: scroll;
+}

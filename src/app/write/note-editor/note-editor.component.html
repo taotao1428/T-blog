@@ -1,0 +1,17 @@
+<ng-container *ngIf="note; else loading">
+  <div class="title_input_box">
+    <input class="title_input" nz-input placeholder="请输入标题" [(ngModel)]="note.title" (keyup)="notify()">
+  </div>
+  <app-text-note-editor
+    [(ngModel)]="note.content"
+    (keyup)="notify()"
+    (save)="_save(note)"
+    (publicize)="publicize()"
+    [saving]="saving"
+    [publicizing]="publicizing"
+  >
+  </app-text-note-editor>
+</ng-container>
+<ng-template #loading>
+  空白
+</ng-template>

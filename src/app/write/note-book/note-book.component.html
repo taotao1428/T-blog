@@ -1,0 +1,24 @@
+<div [attr.title]="notebook.name">
+  <div class="operate_btn"
+       nz-popover [nzContent]="popoverContent"
+       nzTrigger="click"
+       nzPlacement="right"
+       nzOverlayClassName="notebook_popover" [nzVisible]="showTips" (click)="$event.stopPropagation();">
+    <i class="anticon anticon-setting"></i>
+  </div>
+  <ng-template #popoverContent>
+    <ul class="operate_list">
+      <li class="operate_item">
+        <a href="javascript:;" (click)="edit()">
+          <i class="anticon anticon-edit"></i> 编辑
+        </a>
+      </li>
+      <li  class="operate_item">
+        <a href="javascript:;" nz-popconfirm nzTitle="确定删除文集?" (nzOnConfirm)="del()" (nzOnCancel)="showTips=false">
+          <i class="anticon anticon-delete"></i> 删除
+        </a>
+      </li>
+    </ul>
+  </ng-template>
+  <span>{{notebook.name}}</span>
+</div>

@@ -1,0 +1,23 @@
+.wrp {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  min-width: 350px;
+  border-radius: 5px;
+  box-shadow: 0 0 8px rgba(0,0,0,.1);
+  background-color: #fff;
+}
+.title_box{
+  text-align: center;
+}
+
+.login-form-forgot {
+  float: right;
+}
+
+.login-form-button {
+  width: 100%;
+}
+.login_form {
+  width: 300px;
+  margin: 0 auto;
+}

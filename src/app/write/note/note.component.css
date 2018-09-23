@@ -1,0 +1,45 @@
+.note {
+  padding: 20px 15px 20px 11px;
+  position: relative;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  border-left: 4px solid transparent;
+  cursor: pointer;
+}
+:host.active .note{
+  border-color: #ec7259;
+}
+:host.active .operate_btn {
+  display: initial;
+}
+:host {
+  display: block;
+  border-bottom: 1px solid #f2f2f2;
+}
+.icon_box {
+  vertical-align: middle;
+  font-size: 20px;
+  margin-right: 5px;
+}
+.info {
+  flex-grow: 1;
+  width: 0; /* 强制压缩 */
+}
+.info .title {
+  font-size: 16px;
+  font-weight: 600;
+}
+.info .abstract {
+  font-size: 13px;
+}
+.word_count {
+  position: absolute;
+  bottom: 2px;
+  font-size: 12px;
+}
+.operate_btn {
+  cursor: pointer;
+  display: none;
+}
+

@@ -1,0 +1,31 @@
+<nz-layout class="note_manage">
+  <nz-sider [nzWidth]="270" class="secondary_sider">
+    <ng-container *ngIf="notebook; else noNotebookTmpl">
+      <ng-container  *ngIf="!loading; else loadingTmpl">
+        <app-add-note (add)="addNote($event)" [notebook]="notebook"></app-add-note>
+        <app-note
+          *ngFor="let note of notebook.notes"
+          (delete)="deleteNote($event)"
+          (move)="moveNote($event.note, $event.notebook)"
+          (click)="currentNote=note"
+          [notebooks]="notebooks"
+          [notebook]="notebook"
+          [note]="note"
+          [ngClass]="{'active': currentNote == note}"
+        >
+        </app-note>
+      </ng-container>
+    </ng-container>
+  </nz-sider>
+  <nz-content class="content">
+    <app-note-editor [note]="currentNote"></app-note-editor>
+  </nz-content>
+</nz-layout>
+
+<ng-template #noNotebookTmpl>
+  没有选择笔记本
+</ng-template>
+
+<ng-template #loadingTmpl>
+  正在加载笔记列表
+</ng-template>

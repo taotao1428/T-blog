@@ -1,0 +1,38 @@
+<nz-layout class="layout">
+  <nz-header>Header</nz-header>
+  <div class="container">
+    <nz-layout class="layout">
+      <nz-sider class="sider" [nzWidth]="280">
+        <div class="nav_box" routerLinkActive="active">
+          <a routerLink="/setting/basic">
+            <div class="icon">
+              <i class="anticon anticon-bars"></i>
+            </div>
+            <span class="name">基础设置</span>
+          </a>
+        </div>
+        <div class="nav_box" routerLinkActive="active">
+          <a routerLink="/setting/profile">
+            <div class="icon">
+              <i class="anticon anticon-user"></i>
+            </div>
+            <span class="name">个人资料</span>
+          </a>
+        </div>
+        <div class="nav_box" routerLinkActive="active">
+          <a routerLink="/setting/blacklist">
+            <div class="icon">
+              <i class="anticon anticon-close-circle-o"></i>
+            </div>
+            <span class="name">黑名单</span>
+          </a>
+        </div>
+      </nz-sider>
+      <nz-content class="content">
+        <router-outlet></router-outlet>
+      </nz-content>
+    </nz-layout>
+  </div>
+
+</nz-layout>
+

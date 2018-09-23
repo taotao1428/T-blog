@@ -1,0 +1,68 @@
+<div class="editor_container">
+  <div class="toolbar_box">
+    <div class="opr_area">
+      <app-text-simple-btn iconName="floppy-o" (click)="saveNote()" [name]="saving ? '保存中...' : ''" title="保存"></app-text-simple-btn>
+      <app-text-simple-btn iconName="expand" title="全屏"></app-text-simple-btn>
+      <app-text-simple-btn iconName="refresh" title="发布" (click)="publicizeNote()" [name]="publicizing ? '发布中...': '发布'"></app-text-simple-btn>
+    </div>
+    <div>
+      <app-text-btn
+        command="bold"
+        [iconName]="'bold'"
+        [title]="'加粗'"
+        [editor]="editor"
+      ></app-text-btn>
+      <app-text-btn
+        command="italic"
+        [iconName]="'italic'"
+        [title]="'斜体'"
+        [editor]="editor"
+      ></app-text-btn>
+      <app-text-btn
+        command="blockquote"
+        iconName="quote-left"
+        title="引用"
+        [editor]="editor"
+      ></app-text-btn>
+      <app-text-btn
+        command="trikethrough"
+        iconName="strikethrough"
+        title="删除线"
+        [editor]="editor"
+      ></app-text-btn>
+      |
+      <app-text-h-btn2 value="h1" [editor]="editor"></app-text-h-btn2>
+      <app-text-h-btn2 value="h2" [editor]="editor"></app-text-h-btn2>
+      <app-text-h-btn2 value="h3" [editor]="editor"></app-text-h-btn2>
+      <app-text-h-btn2 value="h4" [editor]="editor"></app-text-h-btn2>
+      |
+      <app-text-btn
+        command="horizontal"
+        title="分割线"
+        name="—"
+        [editor]="editor"
+      ></app-text-btn>
+      |
+      <app-text-image-dialog [editor]="editor"></app-text-image-dialog>
+      <app-text-link-dialog [editor]="editor"></app-text-link-dialog>
+      |
+      <app-text-btn
+        command="undo"
+        iconName="undo"
+        title="撤销"
+        [editor]="editor"
+      ></app-text-btn>
+      <app-text-btn
+        command="redo"
+        iconName="redo"
+        title="重做"
+        [editor]="editor"
+      ></app-text-btn>
+    </div>
+  </div>
+  <div id="myEditor">
+
+  </div>
+</div>
+
+

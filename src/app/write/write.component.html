@@ -1,0 +1,23 @@
+<nz-layout class="write_container">
+  <nz-sider [nzWidth]="250" class="first_sider">
+    <ng-container *ngIf="!loading; else loadingTmpl">
+      <app-add-notebook (add)="addNotebook($event)"></app-add-notebook>
+      <div class="notebook">
+        <app-note-book
+          *ngFor="let notebook of notebooks"
+          [notebook]="notebook"
+          (delNotebook)="deleteNotebook(notebook)"
+          (click)="focusNotebook(notebook)"
+          [ngClass]="{'active': currentNotebook == notebook}">
+        </app-note-book>
+      </div>
+    </ng-container>
+  </nz-sider>
+  <nz-content>
+    <app-note-manage [notebook]="currentNotebook" [notebooks]="notebooks"></app-note-manage>
+  </nz-content>
+</nz-layout>
+
+<ng-template #loadingTmpl>
+  加载笔记本列表中...
+</ng-template>

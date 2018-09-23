@@ -1,0 +1,14 @@
+:host {
+  display: block;
+  padding: 15px;
+}
+.add_link{
+  color: #f2f2f2;
+  margin-bottom: 10px;
+}
+.ant-form-item{
+  margin-bottom: 0;
+}
+.submit_btn {
+  margin-right: 15px;
+}

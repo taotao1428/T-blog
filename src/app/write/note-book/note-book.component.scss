@@ -1,0 +1,46 @@
+:host{
+  display: block;
+  padding:10px 15px;
+  cursor: pointer;
+  border-left: 2px solid transparent;
+}
+.operate_btn{
+  float: right;
+  cursor: pointer;
+  display: none;
+}
+
+:host.active {
+  border-left-color: #ec7259;
+  .operate_btn {
+    display: initial;
+  }
+}
+:host:hover, :host.active{
+  background-color: #666;
+}
+ul{
+  margin:0;
+  padding: 0;
+  list-style: none;
+}
+.operate_list {
+  position: relative;
+}
+.operate_item {
+  display: block;
+  a {
+    display: block;
+    color: #595959;
+    padding: 5px 15px;
+  }
+}
+.operate_item a {
+
+}
+
+.operate_item a:hover {
+  background-color: #666;
+  color: #fff;
+}
+

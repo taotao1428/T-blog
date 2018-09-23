@@ -1,0 +1,6 @@
+<button [class]="'edui-btn fa fa-' + iconName"
+        [ngClass]="{'active': active, 'disable': disabled}"
+        (click)="onClick()"
+        [disabled]="disabled"
+        nz-tooltip [nzTitle]="title" [nzMouseEnterDelay]="0.1"
+>{{name}}</button>

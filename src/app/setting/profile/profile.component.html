@@ -1,0 +1,55 @@
+<ng-container *ngIf="!loading; else loadingTmpl">
+  <div>
+    <form nz-form [formGroup]="profileForm" (ngSubmit)="save()">
+      <table class="form_table" valign="top">
+        <thead>
+          <tr>
+            <th class="first_col"></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tr>
+          <td>
+            <span class="title">性别</span>
+          </td>
+          <td>
+            <nz-radio-group formControlName="gender">
+              <label nz-radio [nzValue]="0">男</label>
+              <label nz-radio [nzValue]="1">女</label>
+              <label nz-radio [nzValue]="2">保密</label>
+            </nz-radio-group>
+          </td>
+        </tr>
+        <tr >
+          <td>
+            <span class="title">个人简介</span>
+          </td>
+          <td>
+            <textarea nz-input placeholder="请输入个人简介" formControlName="intro" [nzAutosize]="{ minRows: 3, maxRows: 6}"></textarea>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <span class="title">个人网站</span>
+          </td>
+          <td>
+            <input nz-input placeholder="http://你的网址" formControlName="website" type="text">
+            <div class="explain">
+              填写后会出现在个人主页显示图标
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <button class="submit_btn" type="submit" nz-button nzType="primary" [disabled]="!profileForm.valid&&saving">保存{{saving ? '中...' : ''}}</button>
+          </td>
+          <td></td>
+        </tr>
+      </table>
+    </form>
+  </div>
+</ng-container>
+
+<ng-template #loadingTmpl>
+  加载用户信息中...
+</ng-template>
